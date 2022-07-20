@@ -1,0 +1,75 @@
+{
+  "buildSummary": {
+    "application": "test",
+    "environment": "dev",
+    "accountId": "123456",
+    "accountGroup": "testing",
+    "buildAction": "default",
+    "buildUser": "test@gmail.com",
+    "iacBuildToolVersion": "0.11.14",
+    "buildStatus": "passed",
+    "lastModified": "timestamp",
+    "componentName": "test",
+    "buildUrl": "url",
+    "stateFiles": [
+      "s3://welcome-to-hell/test/dev/us-west-1/test/test.tfstate"
+    ],
+    "createPlanFiles": [
+      "s3://welcome-to-hell/test/dev/us-west-1/test/create.json"
+    ]
+  },
+  "stageSummary": [
+    {
+      "stageName": "foundational",
+      "preScan": "passed",
+      "postScan": "failure",
+      "buildStatus": "passed"
+    },
+    {
+      "stageName": "appinfra",
+      "preScan": "passed",
+      "postScan": "failure",
+      "buildStatus": "passed"
+    }
+  ],
+  "resourceSummary": [
+    {
+      "resource": "arn:aws:events:us-west-1:563423426478:rule/dev-test-app",
+      "status": "Passed",
+      "reason": "n/a"
+    },
+    {
+      "resource": "arn:aws:sns:us-west-1:563423426478:rule/dev-test-app ",
+      "status": "Failed",
+      "reason": ""
+    }
+  ],
+  "rulesSummary": [
+    {
+      "ruleName": "Lambda function is not compliant",
+      "ruleDescription": "lambda compliance Rule - it should be compliant",
+      "ruleType": "postScan",
+      "severity": "low",
+      "result": "Passed"
+    },
+    {
+      "ruleName": "Azure function is not compliant",
+      "ruleDescription": "azure function compliance Rule - it should be compliant",
+      "ruleType": "preScan",
+      "severity": "low",
+      "result": "Failed"
+    },
+    {
+      "ruleName": "Google function is not compliant",
+      "ruleDescription": "Goolge function compliance Rule - it should be compliant",
+      "ruleType": "postScan",
+      "severity": "low",
+      "result": "Failed"
+    }
+  ],
+  "complianceScanSummary": {
+    "rulesRun" : 3,
+    "resourcesScanned" : 1,
+    "resourceFailed" : 1
+  }
+}
